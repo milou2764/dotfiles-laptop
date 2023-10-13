@@ -73,12 +73,24 @@
   },
 
   "mpd": {
+    "server": "localhost",
+    "port": 6600,
     "format": "<span color=\"#7aa2f7\">{stateIcon} </span>{artist} - {title}",
-    "format-paused": "",
+    "on-click" : "mpc toggle",
     "state-icons": {
       "paused": "",
       "playing": ""
     }
+  },
+
+  "custom/prev": {
+    "format": "<span color=\"#7aa2f7\"> PREV </span>",
+    "on-click" : "mpc prev"
+  },
+
+  "custom/next": {
+    "format": "<span color=\"#7aa2f7\"> NEXT </span>",
+    "on-click" : "mpc next"
   }
 }
 
