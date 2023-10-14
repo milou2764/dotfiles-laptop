@@ -75,11 +75,11 @@
   "mpd": {
     "server": "localhost",
     "port": 6600,
-    "format": "<span color=\"#7aa2f7\">{stateIcon} </span>{artist} - {title}",
+    "format": "<span color=\"#7aa2f7\">{stateIcon}   </span>{artist} - {title}",
     "on-click" : "mpc toggle",
     "state-icons": {
-      "paused": "",
-      "playing": ""
+      "playing": "",
+      "paused": ""
     }
   },
 
