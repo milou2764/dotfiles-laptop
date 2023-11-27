@@ -91,6 +91,14 @@
   "custom/next": {
     "format": "<span color=\"#7aa2f7\"> NEXT </span>",
     "on-click" : "mpc next"
-  }
+  },
+  "custom/bluetooth-battery": {
+    "format": "{}",
+    "return-type": "json",
+    "interval": 5,
+    "exec": "~/.config/waybar/modules/bluetooth-battery.sh",
+    "exec-if": "~/.config/waybar/modules/bluetooth_battery_status.sh >/dev/null 2>&1",
+    "signal": 9
+  },
 }
 
