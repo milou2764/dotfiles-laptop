@@ -54,8 +54,8 @@ tooltip {
 #memory,
 #pulseaudio,
 #tray,
-#custom-next,
-#custom-prev,
+#bluetooth,
+#brigthness,
 #mpd {
   background: rgba(21, 22, 30, 0.7);
   padding: 0 10px;
@@ -68,8 +68,6 @@ tooltip {
 }
 
 /* Set up rounding to make these modules look like separate pills */
-#custom-next,
-#custom-prev,
 #mpd {
   border-radius: 8px;
   margin-left: 4px;
@@ -82,11 +80,6 @@ tooltip {
 
 #window {
   border-radius: 8px;
-}
-
-/* Rounding only on left of module */
-#temperature {
-  border-radius: 8px 0 0 8px;
 }
 
 /* Rounding only on right of module(s) */

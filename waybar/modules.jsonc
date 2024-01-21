@@ -7,24 +7,24 @@
   },
 
   "network": {
-    "format": "<span color=\"#7aa2f7\">{icon}</span> {signalStrength}% ",
+    "format": "<span color=\"#7aa2f7\">{icon}</span> {signalStrength}%",
     "format-icons": ["", ""],
     "tooltip-format": "{essid}",
     "interval": 2
   },
 
   "cpu": {
-    "format": "<span color=\"#7aa2f7\"></span> {usage}% ",
+    "format": "<span color=\"#7aa2f7\"></span> {usage}%",
     "interval": 2
   },
 
   "memory": {
-    "format": "<span color=\"#7aa2f7\">RAM</span> {}% ",
+    "format": "<span color=\"#7aa2f7\">RAM</span> {}%",
     "interval": 2
   },
 
   "battery": {
-    "format": "<span color=\"#7aa2f7\">{icon}</span> {}% ",
+    "format": "<span color=\"#7aa2f7\">  {icon}</span>{}%",
     "format-icons": [" ", " ", " ", " ", " " ],
     "interval": 2
   },
@@ -32,8 +32,8 @@
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 80,
-    "format": "<span color=\"#7aa2f7\"></span> {temperatureC}°C",
-    "format-critical": "<span color=\"#f7768e\"></span> {temperatureC}°C",
+    "format": "<span color=\"#7aa2f7\"></span>{temperatureC}°C",
+    "format-critical": "<span color=\"#f7768e\"></span>{temperatureC}°C",
     "interval": 2
   },
 
@@ -82,16 +82,48 @@
       "paused": ""
     }
   },
-
-  "custom/prev": {
-    "format": "<span color=\"#7aa2f7\"> PREV </span>",
-    "on-click" : "mpc prev"
+  
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "format-disconnected": "Disconnected",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+    "interval": 10,
+    "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+    },
+    "random-icons": {
+        "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+        "on": " "
+    },
+    "repeat-icons": {
+        "on": " "
+    },
+    "single-icons": {
+        "on": "1 "
+    },
+    "state-icons": {
+        "paused": "",
+        "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
   },
 
-  "custom/next": {
-    "format": "<span color=\"#7aa2f7\"> NEXT </span>",
-    "on-click" : "mpc next"
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""]
   },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": " {num_connections} connected",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+
   "custom/bluetooth-battery": {
     "format": "{}",
     "return-type": "json",
@@ -99,6 +131,6 @@
     "exec": "~/.config/waybar/modules/bluetooth-battery.sh",
     "exec-if": "~/.config/waybar/modules/bluetooth_battery_status.sh >/dev/null 2>&1",
     "signal": 9
-  },
+  }
 }
 

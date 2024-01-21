@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -24,7 +24,7 @@ set $lock swaylock -f -c 000000
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/milou/Pictures/ASCII-Table-wide.svg fill
+#output * bg /home/milou/Pictures/ASCII-Table-wide.svg fill
 #
 # Example configuration:
 #
@@ -55,6 +55,7 @@ input "1267:12533:ELAN2204:00_04F3:30F5_Touchpad" {
      natural_scroll enabled
      middle_emulation enabled
 }
+
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
@@ -85,10 +86,10 @@ input "1267:12533:ELAN2204:00_04F3:30F5_Touchpad" {
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+    bindsym XF86AudioRaiseVolume exec ~/.config/hypr/scripts/volume.sh up
+    bindsym XF86AudioLowerVolume exec ~/.config/hypr/scripts/volume.sh down
     bindsym XF86AudioMute exec pactl set-sink-mute alsa_output.pci-0000_03_00.6.analog-stereo toggle
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume alsa_output.pci-0000_03_00.6.analog-stereo +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume alsa_output.pci-0000_03_00.6.analog-stereo -5%
-
+    bindsym XF86AudioMicMute exec pactl set-source-mute alsa_input.pci-0000_03_00.6.analog-stereo toggle
     bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5%
     bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
 #
