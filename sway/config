@@ -3,7 +3,6 @@
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
 # Read `man 5 sway` for a complete reference.
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -36,14 +35,15 @@ set $lock swaylock -f -c 000000
 #
 # Example configuration:
 #
-exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-          before-sleep 'swaylock -f -c 000000'
+#exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
+exec mpd
 
 ### Input configuration
 
@@ -92,6 +92,8 @@ input "1267:12533:ELAN2204:00_04F3:30F5_Touchpad" {
     bindsym XF86AudioMicMute exec pactl set-source-mute alsa_input.pci-0000_03_00.6.analog-stereo toggle
     bindsym --locked XF86MonBrightnessUp exec brightnessctl s +5%
     bindsym --locked XF86MonBrightnessDown exec brightnessctl s 5%-
+    bindsym XF86Tools exec systemctl suspend
+    bindsym Print exec swaylock
 #
 # Moving around:
 #
