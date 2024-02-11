@@ -24,7 +24,7 @@
   },
 
   "battery": {
-    "format": "<span color=\"#7aa2f7\">  {icon}</span>{}%",
+    "format": "<span color=\"#7aa2f7\">{icon}</span>{}%",
     "format-icons": [" ", " ", " ", " ", " " ],
     "interval": 2
   },
