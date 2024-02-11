@@ -6,7 +6,7 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 30,
-    "modules-left": ["hyprland/workspaces", "clock", "custom/pacman", "mpd"],
+    "modules-left": ["sway/workspaces", "hyprland/workspaces", "clock", "custom/pacman", "mpd"],
     "modules-center": [],
     "modules-right": ["bluetooth","network","backlight","battery", "temperature", "cpu", "memory", "pulseaudio","microphone", "tray"],
     "include": ["~/.config/waybar/modules.jsonc"]
