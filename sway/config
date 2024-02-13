@@ -9,7 +9,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term foot
 # Your preferred application launcher
 set $menu wofi --show run
 
@@ -72,7 +72,7 @@ input "1267:12533:ELAN2204:00_04F3:30F5_Touchpad" {
     # Reload the configuration file
     bindsym $mod+Shift+c reload
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 
     bindsym --locked XF86AudioRaiseVolume exec $HOME/.config/hypr/scripts/volume.sh up
     bindsym --locked XF86AudioLowerVolume exec $HOME/.config/hypr/scripts/volume.sh down
@@ -81,7 +81,7 @@ input "1267:12533:ELAN2204:00_04F3:30F5_Touchpad" {
     bindsym --locked XF86MonBrightnessUp exec ~/.config/hypr/scripts/brightness.sh up
     bindsym --locked XF86MonBrightnessDown exec ~/.config/hypr/scripts/brightness.sh down
     bindsym XF86Tools exec systemctl suspend
-    bindsym Print exec swaylock
+    bindsym Print exec $lock
 #
 # Moving around:
 #
@@ -195,7 +195,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+#bindsym $mod+r mode "resize"
 
 #
 # Status Bar:
